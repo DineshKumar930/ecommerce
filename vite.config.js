@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/crazycart/",   // 👈 IMPORTANT for GitHub Pages
+  base: "/Ecommerce-01/",   // 👈 IMPORTANT for GitHub Pages
 });
