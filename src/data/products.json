@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 14",
+    "price": 79999,
+    "rating": 4.7,
+    "category": "Electronics",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/z/u/k/-original-imagsgggy5qguq6d.jpeg?q=70"
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S23",
+    "price": 69999,
+    "rating": 4.5,
+    "category": "Electronics",
+    "image": "https://p4-ofp.static.pub//fes/cms/2024/07/17/nlp7hjbit9r7qbqb941hykxjino4f3761364.png"
+  },
+  {
+    "id": 3,
+    "name": "Sony Headphones",
+    "price": 4999,
+    "rating": 4.3,
+    "category": "Electronics",
+    "image": "https://m.media-amazon.com/images/I/611aMi8qIZL._SL1500_.jpg"
+  },
+  {
+    "id": 4,
+    "name": "LG Refrigerator",
+    "price": 45000,
+    "rating": 4.2,
+    "category": "Appliances",
+    "image": "https://tse3.mm.bing.net/th/id/OIP.svHCbCWaOOrIpey9PxAgRwHaGl?w=1000&h=889&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "id": 5,
+    "name": "Whirlpool Washing Machine",
+    "price": 30000,
+    "rating": 4.1,
+    "category": "Appliances",
+    "image": "https://tse4.mm.bing.net/th/id/OIP.K87C1W5unCZH4weqL2lPEQHaHa?w=800&h=800&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "id": 6,
+    "name": "Nike Running Shoes",
+    "price": 4999,
+    "rating": 4.4,
+    "category": "Fashion",
+    "image": "https://www.bhphotovideo.com/images/images2000x2000/sony_mdr_xb950b1_l_xb950b1_extra_bass_bluetooth_1317733.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Adidas Hoodie",
+    "price": 2999,
+    "rating": 4.3,
+    "category": "Fashion",
+    "image": "https://thelockerroom-ne.com/wp-content/uploads/2023/02/Adidas-Fleece-Hoodie-Grey.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Wooden Dining Table",
+    "price": 25000,
+    "rating": 4.2,
+    "category": "Home & Furniture",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71YEhdxC1NL._SL1500_.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Makeup Kit",
+    "price": 1999,
+    "rating": 4.0,
+    "category": "Beauty",
+    "image": "https://champ-sports.co.za/wp-content/uploads/2022/05/master-7000-ew-cr-bat.jpg"
+  },
+  {
+    "id": 10,
+    "name": "LG Refrigerator",
+    "price": 45000,
+    "rating": 4.2,
+    "category": "Appliances",
+    "image": "https://tse3.mm.bing.net/th/id/OIP.svHCbCWaOOrIpey9PxAgRwHaGl?w=1000&h=889&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  
+  {
+    "id": 11,
+    "name": "Cricket Bat",
+    "price": 3999,
+    "rating": 4.5,
+    "category": "Sports",
+    "image": "https://missrose.com.pk/cdn/shop/products/17_1.png?v=1644471885"
+  },
+   
+  {
+    "id": 12,
+    "name": "Bottel",
+    "price": 3999,
+    "rating": 4.5,
+    "category": "Sports",
+    "image": "https://m.media-amazon.com/images/I/913irtXacsL._SL1500_.jpg"
+  }
+]

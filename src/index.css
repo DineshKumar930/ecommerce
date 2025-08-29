@@ -1,0 +1,26 @@
+:root {
+  --header-bg: #f5f5f5;
+  --footer-bg: #eaeaea;
+  --card: #fff;
+  --text: #333;
+  --text-light: #666;
+
+  --accent: #4CAF50; /* Normal green */
+}
+
+[data-theme='dark'] {
+  --header-bg: #222;
+  --footer-bg: #111;
+  --card: #2c2c2c;
+  --text: #f5f5f5;
+  --text-light: #bbb;
+
+  --accent: #4CAF50; /* Same green */
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--card);
+  color: var(--text);
+}
