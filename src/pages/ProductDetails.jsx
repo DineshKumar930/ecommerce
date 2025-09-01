@@ -1,18 +1,20 @@
 import "./ProductDetails.css";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../features/cartSlice";
+import { useNavigate } from "react-router-dom";
+import { addToCart } from "../features/cart/cartSlice";
 
 const ProductDetails = ({ product, onBack }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   if (!product) return null;
 
   return (
     <div className="product-details">
-      <button className="back-btn" onClick={onBack}>
-        ← Back
-      </button>
+      <button className="back-btn" onClick={() => navigate("/")}>
+          ⬅️ Back to Products
+        </button>
 
       <div className="product-card-details">
         <div className="product-image">

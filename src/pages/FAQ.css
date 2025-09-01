@@ -1,0 +1,44 @@
+.faq {
+  background: var(--bg);
+  color: var(--text);
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.faq h2 {
+  font-size: 28px;
+  color: #ff6600;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.faq-item h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #ff6600;
+}
+
+.faq-item p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .faq h2 {
+    font-size: 24px;
+  }
+  .faq-item h4, .faq-item p {
+    font-size: 14px;
+  }
+}
+/* End of src/pages/FAQ.css */

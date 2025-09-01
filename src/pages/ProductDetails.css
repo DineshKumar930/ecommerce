@@ -10,7 +10,8 @@
   position: relative;
   overflow: hidden;
   border: 1px solid #f0f0f0;
-width: 700px;
+  width: 100%;              /* ✅ flexible width */
+  max-width: 300px;         /* ✅ card won't grow too wide */
   min-height: 250px;
   height: auto;
   margin: auto;
@@ -39,7 +40,6 @@ width: 700px;
 
 .product-name {
   font-size: 0.95rem;
-
   color: #333;
   line-height: 1.2;
   height: 2.4em;
@@ -51,24 +51,27 @@ width: 700px;
 }
 
 .rating {
-  font-size: 0.85rem;
-
+  font-size: 0.9rem;
   color: #f5a623;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
-  gap: 3px;
+  align-items: center;
+  gap: 5px;
+  margin: 8px auto;
 }
 
 .rating-count {
   color: #777;
   font-size: 0.75rem;
+  display: inline-block;
+  margin-left: 4px;
 }
 
 .price {
   font-size: 1.05rem;
   font-weight: bold;
   color: #ff6600;
-  margin: 2px 0; /* ✅ gap reduced */
+  margin: 2px 0;
 }
 
 /* Add to Cart Button */
@@ -110,7 +113,7 @@ width: 700px;
     gap: 12px;
   }
   .add-btn {
-    opacity: 1; /* always visible on mobile */
+    opacity: 1; /* always visible on tablet */
   }
 }
 
@@ -123,7 +126,8 @@ width: 700px;
   .product-card-details {
     min-height: 200px;
     padding: 8px;
-    width: 80%;
+    width: 100%;        /* ✅ take full width in grid */
+    max-width: 100%;    /* ✅ no overflow */
   }
   .product-image {
     height: 100px;

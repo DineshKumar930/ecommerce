@@ -1,13 +1,18 @@
+import App from "./App.jsx";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import App from "./App.jsx";         // make sure App.jsx exists in src/
-import { store } from "./store/store.js"; // make sure store.js exists in src/store/
+import { BrowserRouter } from "react-router-dom";
+import { store } from "./store/store.js";
 
+const savedTheme = localStorage.getItem("theme") || "light";
+document.documentElement.setAttribute("data-theme", savedTheme);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>
 );

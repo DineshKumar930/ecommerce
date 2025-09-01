@@ -1,0 +1,43 @@
+.returns-exchanges {
+  background: var(--bg);
+  color: var(--text);
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.returns-exchanges h2 {
+  font-size: 28px;
+  color: #ff6600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.returns-exchanges p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.returns-exchanges ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.returns-exchanges ul li {
+  margin: 10px 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .returns-exchanges h2 {
+    font-size: 24px;
+  }
+  .returns-exchanges p, .returns-exchanges ul li {
+    font-size: 14px;
+  }
+}

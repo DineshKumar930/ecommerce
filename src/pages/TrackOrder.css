@@ -1,0 +1,62 @@
+.track-order {
+  background: var(--bg);
+  color: var(--text);
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.track-order h2 {
+  font-size: 28px;
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+
+.track-order p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.track-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.track-form input {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  width: 200px;
+  outline: none;
+}
+
+.track-form button {
+  padding: 10px 16px;
+  border: none;
+  background: #ff6600;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .track-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .track-form input {
+    width: 100%;
+  }
+
+  .track-form button {
+    width: 100%;
+  }
+}

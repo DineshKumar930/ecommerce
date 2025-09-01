@@ -37,13 +37,12 @@
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
+  text-align: left;         /* ✅ content ab left align */
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   padding: 15px;
   position: relative;
-  overflow: visible;
   border: 1px solid #f0f0f0;
   height: auto;
   min-height: 280px;
@@ -69,8 +68,6 @@
 .product-image img {
   max-width: 100%;
   max-height: 140px;
-  width: auto;
-  height: auto;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
@@ -119,7 +116,7 @@
   font-size: 0.9rem;
   color: #f5a623;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;   /* ✅ left align rating */
   align-items: center;
   gap: 5px;
   margin: 0;
@@ -151,7 +148,6 @@
   transform: translateY(10px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   z-index: 10;
-  overflow: hidden;
 }
 
 .add-btn:hover {
@@ -208,18 +204,12 @@
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     gap: 16px;
   }
-  
   .product-card {
     min-height: 270px;
     padding: 12px;
   }
-  
   .product-image {
     height: 130px;
-  }
-  
-  .product-image img {
-    max-height: 130px;
   }
 }
 
@@ -230,42 +220,24 @@
     gap: 15px;
     padding: 0 12px;
   }
-  
   .product-card {
     min-height: 260px;
     padding: 12px;
   }
-  
   .product-image {
     height: 120px;
-    margin-bottom: 10px;
   }
-  
   .product-image img {
     max-height: 120px;
   }
-  
-  /* Hide desktop button on mobile */
   .add-btn {
     display: none;
   }
-  
-  /* Show mobile button */
   .mobile-add-btn {
     display: block;
   }
-  
   .product-name {
     font-size: 0.9rem;
-    margin: 6px 0 5px 0;
-  }
-  
-  .price {
-    font-size: 1.1rem;
-  }
-  
-  .rating {
-    font-size: 0.85rem;
   }
 }
 
@@ -276,45 +248,29 @@
     gap: 12px;
     padding: 0 10px;
   }
-  
   .product-card {
     min-height: 240px;
     padding: 10px;
   }
-  
   .product-image {
     height: 110px;
-    margin-bottom: 8px;
   }
-  
-  .product-image img {
-    max-height: 110px;
-  }
-  
   .mobile-add-btn {
-    padding: 7px 10px;
     font-size: 0.85rem;
   }
-  
   .product-name {
     font-size: 0.85rem;
-    margin: 5px 0 4px 0;
     height: 2.8em;
   }
-  
   .price {
     font-size: 1.05rem;
   }
-  
   .rating {
     font-size: 0.8rem;
   }
-  
-  .section-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
 }
+
+
 
 /* Extra Small Mobile */
 @media (max-width: 360px) {
@@ -322,15 +278,5 @@
     grid-template-columns: 1fr;
     max-width: 280px;
     margin: 0 auto;
-    gap: 15px;
-  }
-  
-  .product-card {
-    min-height: 250px;
-  }
-  
-  .mobile-add-btn {
-    padding: 8px 12px;
-    font-size: 0.9rem;
   }
 }

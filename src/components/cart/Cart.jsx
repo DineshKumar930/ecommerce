@@ -1,13 +1,14 @@
 import "./Cart.css";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, decreaseQty, increaseQty, removeFromCart } from "../features/cartSlice";
+import { useNavigate } from "react-router-dom";
+import { clearCart, decreaseQty, increaseQty, removeFromCart } from "../../features/cart/cartSlice";
 
-export default function Cart({ onNavigate }) {
+export function Cart() {
   const items = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // Calculate bill
   const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
   const gst = +(subtotal * 0.12).toFixed(2); // 12% GST
   const total = +(subtotal + gst).toFixed(2);
@@ -27,13 +28,16 @@ export default function Cart({ onNavigate }) {
                 <img src={i.image} alt={i.name} />
                 <div className="cart-info">
                   <h4>{i.name}</h4>
-                  <p>Price: ₹{i.price}</p>
-                  <div className="qty-controls">
-                    <button onClick={() => dispatch(decreaseQty(i.id))}>-</button>
-                    <span>{i.qty}</span>
-                    <button onClick={() => dispatch(increaseQty(i.id))}>+</button>
+                  <p className="price">₹{i.price}</p>
+
+                  {/* Modern Quantity Controls */}
+                  <div className="qty-controls-modern">
+                    <button className="qty-btn minus" onClick={() => dispatch(decreaseQty(i.id))}>-</button>
+                    <span className="qty-count">{i.qty}</span>
+                    <button className="qty-btn plus" onClick={() => dispatch(increaseQty(i.id))}>+</button>
                   </div>
-                  <p>Total: ₹{i.price * i.qty}</p>
+
+                  <p className="total-price">Total: ₹{i.price * i.qty}</p>
                   <button className="remove-btn" onClick={() => dispatch(removeFromCart(i.id))}>
                     Remove
                   </button>
@@ -61,7 +65,7 @@ export default function Cart({ onNavigate }) {
               <span>Total</span>
               <span>₹{total}</span>
             </div>
-            <button className="checkout-btn" onClick={() => onNavigate("checkout")}>
+            <button className="checkout-btn" onClick={() => navigate("/checkout")}>
               Proceed to Payment
             </button>
           </div>
@@ -70,3 +74,5 @@ export default function Cart({ onNavigate }) {
     </div>
   );
 }
+
+export default Cart;

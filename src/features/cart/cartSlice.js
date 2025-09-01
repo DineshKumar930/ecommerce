@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: []
+  items: [],           // Cart items
+  filterCategory: "all" // Current category filter
 };
 
 const cartSlice = createSlice({
@@ -30,11 +31,21 @@ const cartSlice = createSlice({
     },
     clearCart: (state) => {
       state.items = [];
+    },
+    // ✅ New reducer to filter by category
+    setCategoryFilter: (state, action) => {
+      state.filterCategory = action.payload; // e.g., "electronics", "fashion", "all"
     }
   }
 });
 
-export const { addToCart, removeFromCart, increaseQty, decreaseQty, clearCart } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  increaseQty,
+  decreaseQty,
+  clearCart,
+  setCategoryFilter
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

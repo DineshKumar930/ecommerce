@@ -1,0 +1,27 @@
+.privacy-policy {
+  background: var(--bg);
+  padding: 60px 0;
+  color: var(--text);
+}
+
+.privacy-policy h2 {
+  font-size: 32px;
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+
+.privacy-policy p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .privacy-policy h2 {
+    font-size: 28px;
+  }
+  .privacy-policy p {
+    font-size: 15px;
+  }
+}

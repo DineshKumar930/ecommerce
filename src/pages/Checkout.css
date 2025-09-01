@@ -1,0 +1,144 @@
+.checkout {
+  padding: 40px 20px;
+  background: #f9fafb;
+  min-height: 80vh;
+  font-family: 'Arial', sans-serif;
+}
+
+.checkout h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #ff6600;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #777;
+  font-size: 1.2rem;
+}
+
+/* Layout */
+.checkout-layout {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Common section styling */
+.checkout-section {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  flex: 1;
+}
+
+/* User / Shipping */
+.shipping-section h3,
+.payment-section h3,
+.order-summary-section h3 {
+  margin-bottom: 20px;
+  color: #ff6600;
+  font-weight: 600;
+  border-bottom: 2px solid #ff6600;
+  padding-bottom: 6px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff3e0;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #ff6600;
+}
+
+.user-info p {
+  margin: 0;
+}
+
+/* Form styling */
+.checkout-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checkout-section label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #333;
+  font-size: 1rem;
+}
+
+.checkout-section input,
+.checkout-section textarea {
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.checkout-section input:focus,
+.checkout-section textarea:focus {
+  border-color: #ff6600;
+  outline: none;
+}
+
+/* Payment section radio buttons */
+.payment-section label {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Pay button */
+.pay-btn {
+  margin-top: 20px;
+  padding: 14px;
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pay-btn:hover {
+  background: linear-gradient(135deg, #388e3c, #4caf50);
+  transform: translateY(-2px);
+}
+
+/* Order Summary */
+.order-summary-section .summary-item,
+.order-summary-section .summary-line,
+.order-summary-section .summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.order-summary-section .summary-total {
+  font-weight: 700;
+  font-size: 1.15rem;
+  border-top: 2px solid #eee;
+  padding-top: 10px;
+  margin-top: 12px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .checkout-layout {
+    flex-direction: column;
+  }
+}
