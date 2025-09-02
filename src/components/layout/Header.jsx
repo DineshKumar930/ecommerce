@@ -175,13 +175,7 @@ export default function Header({ active }) {
 
         {/* Actions */}
         <div className="header-actions">
-          <Link
-            to="/cart"
-            className={`nav-btn ${active === "cart" ? "active" : ""}`}
-          >
-            <span className="cart-icon">🛒</span>
-            <span className="cart-count">{totalCount}</span>
-          </Link>
+         
 
           {/* Mobile Menu Toggle */}
           <button
