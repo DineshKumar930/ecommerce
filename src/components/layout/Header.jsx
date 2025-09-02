@@ -77,7 +77,7 @@ export default function Header({ active }) {
       {/* Top Bar */}
       <div className="pro-header">
         <div className="header-container pro-inner">
-          <span>Welcome to Crazycart - Best Deals Everyday!</span>
+          <span>Best Deals Everyday!</span>
           <button onClick={toggleTheme} className="theme-toggle">
             {isDark ? "Light Mode" : "Dark Mode"}
           </button>
