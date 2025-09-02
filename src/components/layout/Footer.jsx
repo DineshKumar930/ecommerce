@@ -64,7 +64,13 @@ const Footer = () => {
         <div className="footer-links">
           <Link to="/privacy">Privacy Policy</Link> |{" "}
           <Link to="/terms">Terms & Conditions</Link>
+          
         </div>
+        <div className="footer-links">
+          <span>Developed by Dinesh Roy</span>
+          
+        </div>
+        
       </div>
     </footer>
   );
