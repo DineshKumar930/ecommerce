@@ -168,7 +168,7 @@ export default function Header({ active }) {
           <div>
             <Link to="/login" className="login-header">
               <span style={{ marginRight: "5px" }}>👤</span>
-              Login
+              
             </Link>
           </div>
         )}
