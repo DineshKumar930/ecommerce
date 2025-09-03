@@ -21,6 +21,7 @@ export default function Header({ active }) {
   const categories = useSelector((state) => state.products.categories);
   const selectedCategory = useSelector((state) => state.products.selectedCategory);
 
+  // Load theme from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
     setIsDark(savedTheme === "dark");
@@ -36,6 +37,7 @@ export default function Header({ active }) {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  // Close dropdown on outside click or Esc
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -97,87 +99,50 @@ export default function Header({ active }) {
           <button>Search</button>
         </div>
 
-        {/* Auth Area */}
-        {user ? (
-          <div className="auth-area">
-            {/* Profile dropdown trigger */}
-            <div className="user-menu" ref={dropdownRef}>
-              <button
-                className="user-chip"
-                onClick={() => setIsDropdownOpen((v) => !v)}
-                aria-haspopup="menu"
-                aria-expanded={isDropdownOpen}
-              >
-                <div className="avatar-circle">
-                  {user.profilePic ? (
-                    <img
-                      src={user.profilePic}
-                      alt="avatar"
-                      className="avatar-img"
-                    />
-                  ) : (
-                    <span>{getInitials(user.name || user.email || "U")}</span>
-                  )}
-                </div>
-                <span className="user-name">{user.name}</span>
-                <span className="chev">▾</span>
-              </button>
-
-              {isDropdownOpen && (
-                <div className="account-dropdown" role="menu">
-                  <Link
-                    to="/profile"
-                    className="menu-item"
-                    role="menuitem"
-                    onClick={() => setIsDropdownOpen(false)}
-                  >
-                    Profile
-                  </Link>
-                  <Link
-                    to="/orders"
-                    className="menu-item"
-                    role="menuitem"
-                    onClick={() => setIsDropdownOpen(false)}
-                  >
-                    Your Orders
-                  </Link>
-                  <Link
-                    to="/profile/edit"
-                    className="menu-item"
-                    role="menuitem"
-                    onClick={() => setIsDropdownOpen(false)}
-                  >
-                    Edit Profile
-                  </Link>
-                  <button
-                    className="menu-item danger"
-                    role="menuitem"
-                    onClick={handleLogout}
-                  >
-                    Logout
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-        ) : (
-          <div>
-            <Link to="/login" className="login-header">
-              <span style={{ marginRight: "5px" }}>👤</span>
-              Login
-            </Link>
-          </div>
-        )}
-
-        {/* Actions */}
+        {/* Auth & Cart */}
         <div className="header-actions">
-          <Link
-            to="/cart"
-            className={`nav-btn ${active === "cart" ? "active" : ""}`}
-          >
-            <span className="cart-icon">🛒</span>
-            <span className="cart-count">{totalCount}</span>
+          {/* Cart */}
+          <Link to="/cart" className="cart-icon">
+            🛒
+            {totalCount > 0 && <span className="cart-count">{totalCount}</span>}
           </Link>
+
+          {/* User */}
+          {user ? (
+            <div className="auth-area">
+              <div className="user-menu" ref={dropdownRef}>
+                <button
+                  className="user-chip"
+                  onClick={() => setIsDropdownOpen((v) => !v)}
+                  aria-haspopup="menu"
+                  aria-expanded={isDropdownOpen}
+                >
+                  <div className="avatar-circle">
+                    {user.profilePic ? (
+                      <img src={user.profilePic} alt="avatar" className="avatar-img" />
+                    ) : (
+                      <span>{getInitials(user.name || user.email || "U")}</span>
+                    )}
+                  </div>
+                  <span className="user-name">{user.name}</span>
+                  <span className="chev">▾</span>
+                </button>
+
+                {isDropdownOpen && (
+                  <div className="account-dropdown" role="menu">
+                    <Link to="/profile" className="menu-item" onClick={() => setIsDropdownOpen(false)}>Profile</Link>
+                    <Link to="/orders" className="menu-item" onClick={() => setIsDropdownOpen(false)}>Your Orders</Link>
+                    <Link to="/profile/edit" className="menu-item" onClick={() => setIsDropdownOpen(false)}>Edit Profile</Link>
+                    <button className="menu-item danger" onClick={handleLogout}>Logout</button>
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : (
+            <Link to="/login" className="login-header" style={{ textDecoration: "none", color: "var(--accent)" }}>
+              👤
+            </Link>
+          )}
 
           {/* Mobile Menu Toggle */}
           <button
