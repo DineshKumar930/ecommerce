@@ -13,9 +13,9 @@ const Footer = () => {
         <div className="footer-col brand">
           <h3 className="footer-logo">🛍️ 
             
-            CrazyCart</h3>
+            Crazykart</h3>
           <p className="footer-desc-to">
-            CrazyCart is your one-stop destination for fashion, electronics, and more.
+            Crazykart is your one-stop destination for fashion, electronics, and more.
             Shop smart, live better!
           </p>
           <div className="footer-social">
@@ -60,7 +60,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} CrazyCart. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Crazykart. All rights reserved.</p>
         <div className="footer-links">
           <Link to="/privacy">Privacy Policy</Link> |{" "}
           <Link to="/terms">Terms & Conditions</Link>

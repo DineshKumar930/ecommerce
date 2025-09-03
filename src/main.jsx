@@ -1,18 +1,20 @@
-import App from "./App.jsx";
+import "./index.css";
+import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { store } from "./store/store.js";
 
-const savedTheme = localStorage.getItem("theme") || "light";
-document.documentElement.setAttribute("data-theme", savedTheme);
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// Apply saved theme on load
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  document.body.classList.add('dark-theme');
+}
+
+// Create root
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
 
 root.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );

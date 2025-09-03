@@ -18,19 +18,15 @@ export default function Header({ active }) {
     state.cart.items.reduce((s, i) => s + i.qty, 0)
   );
   const user = useSelector((state) => state.auth.user);
-
-  // ✅ get categories dynamically from slice
   const categories = useSelector((state) => state.products.categories);
   const selectedCategory = useSelector((state) => state.products.selectedCategory);
 
-  // Load theme from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
     setIsDark(savedTheme === "dark");
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);
 
-  // Toggle theme
   const toggleTheme = () => {
     const nextTheme = isDark ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", nextTheme);
@@ -40,7 +36,6 @@ export default function Header({ active }) {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // Close dropdown on outside click or ESC
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -86,12 +81,13 @@ export default function Header({ active }) {
 
       {/* Main Header */}
       <div className="main-header">
+        {/* Brand */}
         <Link to="/" className="brand" onClick={() => dispatch(filterByCategory("All"))}>
           <span className="logo">🛍️</span>
-          <span className="brand-name">Crazycart</span>
+          <span className="brand-name">Crazykart</span>
         </Link>
 
-        {/* ✅ Search Bar */}
+        {/* Search */}
         <div className="search-box">
           <input
             type="text"
@@ -101,6 +97,7 @@ export default function Header({ active }) {
           <button>Search</button>
         </div>
 
+<<<<<<< HEAD
         {/* Auth Area */}
         {user ? (
           <div className="auth-area">
@@ -176,6 +173,60 @@ export default function Header({ active }) {
         {/* Actions */}
         <div className="header-actions">
          
+=======
+        {/* Auth & Cart Area */}
+        <div className="header-actions">
+          {/* Cart Icon */}
+          <Link to="/cart" className="cart-icon">
+            🛒
+            {totalCount > 0 && <span className="cart-count">{totalCount}</span>}
+          </Link>
+>>>>>>> 899b80c (Updated XYZ files)
+
+          {/* Auth */}
+          {user ? (
+            <div className="auth-area">
+              <div className="user-menu" ref={dropdownRef}>
+                <button
+                  className="user-chip"
+                  onClick={() => setIsDropdownOpen((v) => !v)}
+                  aria-haspopup="menu"
+                  aria-expanded={isDropdownOpen}
+                >
+                  <div className="avatar-circle">
+                    {user.profilePic ? (
+                      <img src={user.profilePic} alt="avatar" className="avatar-img" />
+                    ) : (
+                      <span>{getInitials(user.name || user.email || "U")}</span>
+                    )}
+                  </div>
+                  <span className="user-name">{user.name}</span>
+                  <span className="chev">▾</span>
+                </button>
+
+                {isDropdownOpen && (
+                  <div className="account-dropdown" role="menu">
+                    <Link to="/profile" className="menu-item" onClick={() => setIsDropdownOpen(false)}>
+                      Profile
+                    </Link>
+                    <Link to="/orders" className="menu-item" onClick={() => setIsDropdownOpen(false)}>
+                      Your Orders
+                    </Link>
+                    <Link to="/profile/edit" className="menu-item" onClick={() => setIsDropdownOpen(false)}>
+                      Edit Profile
+                    </Link>
+                    <button className="menu-item danger" onClick={handleLogout}>
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : (
+            <Link to="/login" className="login-header" style={{textDecoration: 'none', color: 'var(--accent)'}}>
+              👤
+            </Link>
+          )}
 
           {/* Mobile Menu Toggle */}
           <button
@@ -190,9 +241,9 @@ export default function Header({ active }) {
         </div>
       </div>
 
-      {/* ✅ Category Nav */}
+      {/* Category Nav */}
       <nav className={`navbar ${isMenuOpen ? "open" : ""}`}>
-        <div className="container nav-inner">
+        <div className="nav-inner">
           {categories.map((cat) => (
             <Link
               key={cat}
@@ -207,9 +258,7 @@ export default function Header({ active }) {
       </nav>
 
       {/* Mobile Overlay */}
-      {isMenuOpen && (
-        <div className="overlay" onClick={() => setIsMenuOpen(false)}></div>
-      )}
+      {isMenuOpen && <div className="overlay" onClick={() => setIsMenuOpen(false)}></div>}
     </header>
   );
 }
