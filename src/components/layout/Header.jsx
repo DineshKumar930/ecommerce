@@ -97,58 +97,87 @@ export default function Header({ active }) {
           <button>Search</button>
         </div>
 
-        {/* Auth & Cart Area */}
-        <div className="header-actions">
-          {/* Cart Icon */}
-          <Link to="/cart" className="cart-icon">
-            🛒
-            {totalCount > 0 && <span className="cart-count">{totalCount}</span>}
-          </Link>
+        {/* Auth Area */}
+        {user ? (
+          <div className="auth-area">
+            {/* Profile dropdown trigger */}
+            <div className="user-menu" ref={dropdownRef}>
+              <button
+                className="user-chip"
+                onClick={() => setIsDropdownOpen((v) => !v)}
+                aria-haspopup="menu"
+                aria-expanded={isDropdownOpen}
+              >
+                <div className="avatar-circle">
+                  {user.profilePic ? (
+                    <img
+                      src={user.profilePic}
+                      alt="avatar"
+                      className="avatar-img"
+                    />
+                  ) : (
+                    <span>{getInitials(user.name || user.email || "U")}</span>
+                  )}
+                </div>
+                <span className="user-name">{user.name}</span>
+                <span className="chev">▾</span>
+              </button>
 
-          {/* Auth */}
-          {user ? (
-            <div className="auth-area">
-              <div className="user-menu" ref={dropdownRef}>
-                <button
-                  className="user-chip"
-                  onClick={() => setIsDropdownOpen((v) => !v)}
-                  aria-haspopup="menu"
-                  aria-expanded={isDropdownOpen}
-                >
-                  <div className="avatar-circle">
-                    {user.profilePic ? (
-                      <img src={user.profilePic} alt="avatar" className="avatar-img" />
-                    ) : (
-                      <span>{getInitials(user.name || user.email || "U")}</span>
-                    )}
-                  </div>
-                  <span className="user-name">{user.name}</span>
-                  <span className="chev">▾</span>
-                </button>
-
-                {isDropdownOpen && (
-                  <div className="account-dropdown" role="menu">
-                    <Link to="/profile" className="menu-item" onClick={() => setIsDropdownOpen(false)}>
-                      Profile
-                    </Link>
-                    <Link to="/orders" className="menu-item" onClick={() => setIsDropdownOpen(false)}>
-                      Your Orders
-                    </Link>
-                    <Link to="/profile/edit" className="menu-item" onClick={() => setIsDropdownOpen(false)}>
-                      Edit Profile
-                    </Link>
-                    <button className="menu-item danger" onClick={handleLogout}>
-                      Logout
-                    </button>
-                  </div>
-                )}
-              </div>
+              {isDropdownOpen && (
+                <div className="account-dropdown" role="menu">
+                  <Link
+                    to="/profile"
+                    className="menu-item"
+                    role="menuitem"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Profile
+                  </Link>
+                  <Link
+                    to="/orders"
+                    className="menu-item"
+                    role="menuitem"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Your Orders
+                  </Link>
+                  <Link
+                    to="/profile/edit"
+                    className="menu-item"
+                    role="menuitem"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Edit Profile
+                  </Link>
+                  <button
+                    className="menu-item danger"
+                    role="menuitem"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
             </div>
-          ) : (
-            <Link to="/login" className="login-header" style={{textDecoration: 'none', color: 'var(--accent)'}}>
-              👤
+          </div>
+        ) : (
+          <div>
+            <Link to="/login" className="login-header">
+              <span style={{ marginRight: "5px" }}>👤</span>
+              Login
             </Link>
-          )}
+          </div>
+        )}
+
+        {/* Actions */}
+        <div className="header-actions">
+          <Link
+            to="/cart"
+            className={`nav-btn ${active === "cart" ? "active" : ""}`}
+          >
+            <span className="cart-icon">🛒</span>
+            <span className="cart-count">{totalCount}</span>
+          </Link>
 
           {/* Mobile Menu Toggle */}
           <button
