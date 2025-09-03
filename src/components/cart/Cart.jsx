@@ -15,9 +15,8 @@ export function Cart() {
 
   return (
     <div className="cart-page container">
-      <h2>Your Shopping Cart</h2>
 
-      {items.length === 0 && <p className="empty-cart">🛒 Your cart is empty!</p>}
+      {items.length === 0 && <p className="empty-cart" >🛒 Your cart is empty!</p>}
 
       {items.length > 0 && (
         <div className="cart-layout">

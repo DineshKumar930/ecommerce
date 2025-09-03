@@ -19,62 +19,70 @@ import ReturnsAndExchanges from "./pages/ReturnsAndExchanges";
 import ShippingInfo from "./pages/ShippingInfo";
 import TermsConditions from "./pages/TermsCondition";
 import TrackOrder from "./pages/TrackOrder";
-import { Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import { store } from "./store/store";
+
+// ✅ Redux
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   return (
-    <Layout>
-      <Routes>
-        {/* Home / Product List */}
-        <Route
-          path="/"
-          element={
-            <ProductList
-              onSelectProduct={(product) => setSelectedProduct(product)}
+    <Provider store={store}>
+      <HashRouter>
+        <Layout>
+          <Routes>
+            {/* Home / Product List */}
+            <Route
+              path="/"
+              element={
+                <ProductList
+                  onSelectProduct={(product) => setSelectedProduct(product)}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/details"
-          element={
-            selectedProduct ? (
-              <ProductDetails product={selectedProduct} />
-            ) : (
-              <p style={{ padding: "20px", textAlign: "center" }}>
-                No product selected. Go back to <a href="/">Products</a>.
-              </p>
-            )
-          }
-        />
+            <Route
+              path="/details"
+              element={
+                selectedProduct ? (
+                  <ProductDetails product={selectedProduct} />
+                ) : (
+                  <p style={{ padding: "20px", textAlign: "center" }}>
+                    No product selected. Go back to <a href="/">Products</a>.
+                  </p>
+                )
+              }
+            />
 
-        {/* Cart & Checkout */}
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
+            {/* Cart & Checkout */}
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
 
-        {/* Auth Pages */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+            {/* Auth Pages */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
-        {/* Profile Pages */}
-        <Route path="/profile" element={<Profile />} />         {/* ✅ Profile Page */}
-        <Route path="/profile/edit" element={<EditProfile />} /> {/* ✅ Edit Profile */}
+            {/* Profile Pages */}
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/edit" element={<EditProfile />} />
 
-        {/* Footer / Info Pages */}
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/blogs" element={<BlogNews />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/returns" element={<ReturnsAndExchanges />} />
-        <Route path="/shipping" element={<ShippingInfo />} />
-        <Route path="/terms" element={<TermsConditions />} />
-        <Route path="/track-order" element={<TrackOrder />} />
-        <Route path="/help" element={<Help />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/orders" element={<OrderHistory />} />
-      </Routes>
-    </Layout>
+            {/* Footer / Info Pages */}
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/blogs" element={<BlogNews />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/returns" element={<ReturnsAndExchanges />} />
+            <Route path="/shipping" element={<ShippingInfo />} />
+            <Route path="/terms" element={<TermsConditions />} />
+            <Route path="/track-order" element={<TrackOrder />} />
+            <Route path="/help" element={<Help />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/orders" element={<OrderHistory />} />
+          </Routes>
+        </Layout>
+      </HashRouter>
+    </Provider>
   );
 }
 

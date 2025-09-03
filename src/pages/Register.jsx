@@ -9,6 +9,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [profilePic, setProfilePic] = useState(null);
+  const [successMsg, setSuccessMsg] = useState(""); // ✅ success message
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -18,7 +19,7 @@ export default function Register() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setProfilePic(reader.result); // ✅ base64 string
+        setProfilePic(reader.result);
       };
       reader.readAsDataURL(file);
     }
@@ -32,14 +33,18 @@ export default function Register() {
       return;
     }
 
-    // Create user object with picture
     const newUser = { name, email, password, profilePic };
 
-    // Dispatch register action (sirf save karenge, login nahi karenge)
+    // Dispatch register action
     dispatch(register(newUser));
 
-    // ✅ Register hone ke baad login page pe bhejo
-    navigate("/login");
+    // ✅ Show success message
+    setSuccessMsg("Registration successful! Redirecting to login...");
+
+    // ✅ Wait 2 seconds then navigate
+    setTimeout(() => {
+      navigate("/login");
+    }, 2000);
   };
 
   return (
@@ -92,13 +97,15 @@ export default function Register() {
           Register
         </button>
 
-        {/* Already have an account link */}
         <p className="auth-text-register">
           Already have an account?{" "}
           <Link to="/login" className="auth-link-register">
             Login here
           </Link>
         </p>
+
+        {/* ✅ Success Toast */}
+        {successMsg && <div className="toast-success">{successMsg}</div>}
       </form>
     </div>
   );
